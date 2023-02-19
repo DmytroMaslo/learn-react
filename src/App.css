@@ -1,7 +1,7 @@
-.App {
-  text-align: center;
-}
 
+ul li {
+  list-style: georgian;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
