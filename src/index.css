@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "headerFont";
+  src: local("headerFont"),
+   url("./fonts/headerFont.ttf") format("truetype");
+  font-weight: bold;
+  }
