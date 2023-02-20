@@ -1,12 +1,12 @@
 import React from "react";
-
+import classes from './Navigation.module.css';
 const Navigation = () => {
-    return <nav class='sidebar'>
-        <div>Profile</div>
-        <div>Messages</div>
-        <div>News</div>
-        <div>Music</div>
-        <div>Settings</div>
+    return <nav className='sidebar'>
+        <div className={classes.item}>Profile</div>
+        <div className={classes.item}>Messages</div>
+        <div className={classes.item}>News</div>
+        <div className={classes.item}>Music</div>
+        <div className={classes.item}>Settings</div>
     </nav>
 }
 export default Navigation;

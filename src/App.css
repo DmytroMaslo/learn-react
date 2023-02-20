@@ -9,14 +9,8 @@
   grid-gap: 10px;
   
 }
-.header {
-  grid-area: header;
-  background-color: aqua;
-}
-.sidebar {
-  grid-area: nav;
-  background-color: azure;
-}
+
+
 .content {
   grid-area: content;
   background-color: beige;
