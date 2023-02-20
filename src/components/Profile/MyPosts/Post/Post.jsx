@@ -1,9 +1,11 @@
 import React from "react";
 import style from './Post.module.css'
+import avaLogo from '../../../../img/avaLogo.jpg'
 
-const Post = () => {
+const Post = (props) => {
     return <div className={style.item}>
-        Post 1
+        <img src={avaLogo} />
+        {props.message}
     </div>
 
 

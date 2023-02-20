@@ -6,11 +6,9 @@ const MyPosts = () => {
     return <div>
         My post
         <div>New Post</div>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+        <Post message = 'Hi! first message'/>
+        <Post message = 'Using props!'/>
+
     </div>
 
 }
