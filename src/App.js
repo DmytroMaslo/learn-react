@@ -1,30 +1,17 @@
 import './App.css';
-import logo from './img/logo.png';
-import contentHeader from './img/contentHeader.png';
+
+
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+import Profile from './components/Profile';
 const App = () => {
   return (
     <div className="app-wrapper">
-       <header className="flexbox">social network</header>
-       <nav className="flexbox">ASIDE</nav>
-       <article className="article">
-        <div className='headerImg'>
-          <img src={contentHeader}/>
-        </div>
-        <p>ARTICLE</p>
-        <div>ava+description</div>
-        <div>
-          My posts
-          <div>
-            New Post
-          </div>
-          <div>
-            <div>
-              Post 1
-            </div>
-          </div>
-        </div>
-        </article>
-       <footer className="flexbox">FOOTER</footer>
+      <div class="grid">
+        <Header />
+        <Navigation />
+        <Profile />
+      </div>
     </div>
   );
 }
