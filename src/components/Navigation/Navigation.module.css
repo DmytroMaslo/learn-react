@@ -1,6 +1,6 @@
 .sidebar {
     grid-area: nav;
-    background-color: azure;
+    background-color: rgb(172, 248, 248);
   }
   
 .item{
