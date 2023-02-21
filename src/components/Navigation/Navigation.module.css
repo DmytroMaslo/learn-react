@@ -1,7 +1,9 @@
 .sidebar {
     grid-area: nav;
-    background-color: rgb(68, 248, 248);
-    padding: 20px;
+    background-color: #bbb;
+    border-radius: 5px;
+    margin: 2px;
+    padding: 10px;
   }
   
 .item{

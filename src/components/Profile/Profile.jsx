@@ -1,10 +1,11 @@
 import React from "react";
 import contentHeader from './../../img/contentHeader.png';
 import MyPosts from "./MyPosts/MyPosts";
+import classes from './Profile.module.css'
 const Profile = ()=>{
-    return <div class='content'>
+    return <div className='content'>
         <div>
-            <img src={contentHeader} />
+            <img className={classes.profileHeadImg} src={contentHeader} />
             <div>ava+description</div>
             <MyPosts />
         </div>

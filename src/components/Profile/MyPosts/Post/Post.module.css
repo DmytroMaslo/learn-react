@@ -1,6 +1,11 @@
 .item {
     color: #222;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 2px;
+    background-color: #ddd;
 }
+
 .item img{
     width: 50px;
     border-radius: 25px;

@@ -4,17 +4,22 @@
 }
 .dialogs{
     padding: 10px;
+
     
 }
 .dialog{
-    
+    border-radius: 5px;
+    background-color: #ccc;
+    margin: 3px;
+    padding: 3px;
 }
 .messages{
     padding: 10px;
+    border-left: 6px solid #666;
 }
 .message{
     
 }
 .dialogs .activeDialog{
-    color: gold;
+    color: rgb(131, 131, 131);
 }
