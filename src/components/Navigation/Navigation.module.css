@@ -1,8 +1,16 @@
 .sidebar {
     grid-area: nav;
-    background-color: rgb(172, 248, 248);
+    background-color: rgb(68, 248, 248);
+    padding: 20px;
   }
   
 .item{
     color:#999
+}
+.item a{
+  color:#222
+}
+.item a.activeLink{
+  color:#666;
+  text-decoration: none;  
 }
