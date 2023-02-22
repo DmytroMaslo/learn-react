@@ -5,5 +5,12 @@
     margin: 2px;
   }
 .header img{
-    width: 50px;
+    height: 55px;
+  }
+
+  .header span{
+    font-size: 40px;
+    color:#ddd;
+    font-weight: bold;
+    padding: 10px;
   }

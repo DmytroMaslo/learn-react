@@ -5,7 +5,7 @@ import style from './Header.module.css';
 const Header = () => {
     return <header class={style.header}>
         <img src={logo} />
-        header
+        <span>Social NetWork</span>
     </header>
 }
 

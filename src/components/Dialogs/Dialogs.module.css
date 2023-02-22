@@ -4,8 +4,6 @@
 }
 .dialogs{
     padding: 10px;
-
-    
 }
 .dialog{
     border-radius: 5px;
@@ -22,4 +20,13 @@
 }
 .dialogs .activeDialog{
     color: rgb(131, 131, 131);
+}
+.dialogLink{
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+}
+.activeDialog{
+    color:#333;
+    font-size: 18px;
 }
