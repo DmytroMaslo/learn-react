@@ -1,3 +1,17 @@
 .item {
     color: #222;
 }
+
+.addPost{
+    padding:5px;
+}
+.addPost textarea{
+    margin: 5px;
+    width: 400px;
+    height: 50px;
+    border-radius: 5px;
+}
+.addPost button{
+    margin-top: -20px;
+    margin: 5px;
+}
