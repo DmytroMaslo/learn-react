@@ -4,12 +4,12 @@ import Post from "./Post/Post";
 
 const MyPosts = () => {
     let PostData = [
-        {id:1,post:'Hi! first message',likes:3},
-        {id:2,post:'Using props!',likes:5},
-        {id:3,post:'How are you?',likes:7},
-        {id:4,post:'Spam message',likes:4},
-        {id:5,post:'Just another post',likes:9},
-        {id:6,post:'More post is better',likes:13},
+        { id: 1, post: 'Hi! first message', likes: 3 },
+        { id: 2, post: 'Using props!', likes: 5 },
+        { id: 3, post: 'How are you?', likes: 7 },
+        { id: 4, post: 'Spam message', likes: 4 },
+        { id: 5, post: 'Just another post', likes: 9 },
+        { id: 6, post: 'More post is better', likes: 13 },
     ]
     return (
         <div>
@@ -21,8 +21,9 @@ const MyPosts = () => {
 
             </div>
             <div className={style.posts}>New Post</div>
-            <Post message='Hi! first message' />
-            <Post message='Using props!' />
+            {PostData.map(data =>
+                <Post message={data.post} id={data.id} likes={data.likes} />
+            )}
         </div>
     )
 

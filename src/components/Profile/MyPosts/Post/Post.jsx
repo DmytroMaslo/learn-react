@@ -6,6 +6,7 @@ const Post = (props) => {
     return <div className={style.item}>
         <img src={avaLogo} />
         {props.message}
+        <div className={style.like}>Likes:{props.likes}</div>
     </div>
 
 
