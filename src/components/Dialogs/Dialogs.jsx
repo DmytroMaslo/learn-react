@@ -15,17 +15,15 @@ const Message = (props) => {
     )
 }
 const Dialogs = (props) => {
-    let DialogData = props.data.dialogs;
-    let MessageData = props.data.messages;
     return (
         <div className={styles.dialogsWrapper}>
             <div className={styles.dialogs}>
-                {DialogData.map((dialog) => (
+                {props.dialogs.map((dialog) => (
                     <DialogItem name={dialog.name} id={dialog.id} />
                 ))}
             </div>
             <div className={styles.messages}>
-                {MessageData.map((data) => (
+                {props.messages.map((data) => (
                     <Message message={data.message} />
                 ))}
             </div>
