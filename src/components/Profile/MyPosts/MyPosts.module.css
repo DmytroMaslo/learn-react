@@ -2,16 +2,16 @@
     color: #222;
 }
 
-.addPost{
+.addPostStyle{
     padding:5px;
 }
-.addPost textarea{
+.addPostStyle textarea{
     margin: 5px;
     width: 400px;
     height: 50px;
     border-radius: 5px;
 }
-.addPost button{
+.addPostStyle button{
     margin-top: -20px;
     margin: 5px;
 }

@@ -14,7 +14,22 @@ const Message = (props) => {
         <div className={styles.message}>{props.message}</div>
     )
 }
+const SendMessage = (props) => {
+    let messageText = React.createRef();
+    let sendMessage = () => {
+        alert(messageText.current.value)
+    }
+    return (
+        <div>
+            <div><textarea ref={messageText}>Type your message here</textarea></div>
+            <div>
+                <button onClick={sendMessage}>Send</button>
+            </div>
+        </div>
+    )
+}
 const Dialogs = (props) => {
+
     return (
         <div className={styles.dialogsWrapper}>
             <div className={styles.dialogs}>
@@ -26,10 +41,14 @@ const Dialogs = (props) => {
                 {props.messages.map((data) => (
                     <Message message={data.message} />
                 ))}
+                <div className={styles.sendMessage}>
+                    <SendMessage />
+                </div>
             </div>
-        </div>
 
+        </div>
     )
+    
 }
 
 export default Dialogs;

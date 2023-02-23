@@ -6,12 +6,13 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef();
     let addPost = () => {
         let text = newPostElement.current.value;
-        alert(text);
+        props.addPost(text)
+        debugger;
     }
-
+   
     return (
         <div>
-            <div className={style.addPost}>
+            <div className={style.addPostStyle}>
                 <textarea ref={newPostElement}>Type text here</textarea>
                 <div>
                     <button onClick={addPost}>Add post</button>
@@ -19,11 +20,11 @@ const MyPosts = (props) => {
 
             </div>
             <div className={style.posts}>New Post</div>
+            
             {props.postData.map(data =>
                 <Post message={data.post} id={data.id} likes={data.likes} />
             )}
         </div>
     )
-
 }
 export default MyPosts;

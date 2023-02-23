@@ -18,6 +18,9 @@
 .message{
     font-style: italic;
 }
+.sendMessage{
+    min-width: 100%;
+}
 .dialogs .activeDialog{
     color: rgb(131, 131, 131);
 }
@@ -29,4 +32,18 @@
 .activeDialog{
     color:#333;
     font-size: 18px;
+}
+.messageText{
+
+}
+.sendMessage textarea{
+    width: 100%;
+    height: 70px;
+    border-radius: 7px;
+}
+.sendMessage button{
+    width: 100%;
+    height: 40px;
+    border-radius: 7px;
+    background-color: #85c2da;
 }
