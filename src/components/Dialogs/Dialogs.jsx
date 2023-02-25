@@ -19,7 +19,6 @@ const SendMessage = (props) => {
     let newMessageText = React.createRef();
     let addMessage = () => {
         props.dispatch(addMessageActionCreator())
-        debugger;
     }
     let onMessageChange = () => {
         let textMessage = newMessageText.current.value;
