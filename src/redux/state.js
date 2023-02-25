@@ -1,7 +1,12 @@
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import sidebarReducer from "./sidebarReducer";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST = 'UPDATE-NEW-POST';
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
+
 let store = {
   _state: {
     dialogsPage: {
@@ -34,7 +39,10 @@ let store = {
         { id: 6, post: 'More post is better', likes: 13 },
       ],
       newPostText: 'data from state'
-    }
+    },
+    sidebar:{
+
+    },
 
   },
   getState() {
@@ -47,41 +55,13 @@ let store = {
     this._callSubscriber = observer;
   },
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 7,
-        post: this._state.profilePage.newPostText,
-        likes: 0
-      };
-      this._state.profilePage.posts.push(newPost)
-      this._state.profilePage.newPostText = '';
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_POST) {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    } else if (action.type === ADD_MESSAGE) {
-      let newMessage = {
-        id: 7,
-        message: this._state.dialogsPage.newMessage,
-      };
-      this._state.dialogsPage.messages.push(newMessage)
-      this._state.dialogsPage.newMessage = '';
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_MESSAGE) {
-      this._state.dialogsPage.newMessage = action.newMessage;
-      this._callSubscriber(this._state);
-    } 
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage,action)
+    this._state.sidebar = sidebarReducer(this._state.sidebar,action)
+    this._callSubscriber(this._state);
   }
 }
-export const addPostActionCreator = () => ({ type: ADD_POST })
-export const updateNewPostActionCreator = (text) => ({
-    type: UPDATE_NEW_POST,
-    newText: text
-})
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE })
-export const updateNewMessageActionCreator = (text) => ({
-    type: UPDATE_NEW_MESSAGE,
-    newMessage: text
-})
+
+
 window.store = store;
 export default store;
