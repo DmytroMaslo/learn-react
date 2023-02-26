@@ -1,41 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import styles from './Dialogs.module.css';
-import { addMessageActionCreator, updateNewMessageActionCreator } from "../../redux/dialogs-reducer";
-
-const DialogItem = (props) => {
-    return (
-        <div className={styles.dialog}>
-            <NavLink to={'/dialogs/' + props.id} className={styles.dialogLink}> {props.name} </NavLink>
-        </div>
-    )
-}
-const Message = (props) => {
-    return (
-        <div className={styles.message}>{props.message}</div>
-    )
-}
-const SendMessage = (props) => {
-    let newMessageText = React.createRef();
-    let addMessage = () => {
-        props.dispatch(addMessageActionCreator())
-    }
-    let onMessageChange = () => {
-        let textMessage = newMessageText.current.value;
-        props.dispatch(updateNewMessageActionCreator(textMessage))
-    }
-    return (
-        <div>
-            <div><textarea 
-                    ref={newMessageText}
-                    value={props.newMessage}
-                    onChange={onMessageChange}>Type your message here</textarea></div>
-            <div>
-                <button onClick={addMessage}>Send</button>
-            </div>
-        </div>
-    )
-}
+import DialogItem from "./dialog/DialogItem";
+import Message from "./message/Message";
+import SendMessage from "./sendMessage/SendMessage";
 const Dialogs = (props) => {
 
     return (
@@ -50,7 +17,7 @@ const Dialogs = (props) => {
                     <Message message={data.message} />
                 ))}
                 <div className={styles.sendMessage}>
-                    <SendMessage dispatch ={props.dispatch}/>
+                    <SendMessage onAddMessage ={props.onAddMessage} onMessageChange ={props.onMessageChange} newMessage={props.newMessage}/>
                 </div>
             </div>
 

@@ -1,0 +1,14 @@
+.sendMessage textarea{
+    width: 100%;
+    height: 70px;
+    border-radius: 7px;
+    font-style: italic;
+    
+
+}
+.sendMessage button{
+    width: 100%;
+    height: 40px;
+    border-radius: 7px;
+    background-color: #85c2da;
+}
