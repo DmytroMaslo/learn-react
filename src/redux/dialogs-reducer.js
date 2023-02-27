@@ -21,17 +21,16 @@ let initialState =  {
     ],
     newMessage:'Type your message here'
   }
+  let stateCopy;
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE:{
-            let newMessageText = {
-                id: 7,
-                message: state.newMessage,
-            };
-            let stateCopy = {...state,messages:[...state.messages]};
-            stateCopy.messages.push(newMessageText)
-            stateCopy.newMessage = '';
-            console.log(stateCopy)
+            let body = state.newMessage;
+            stateCopy ={
+                ...state,
+                newMessage:'',
+                messages:[...state.messages,{id:8,message:body}]
+            }
             return stateCopy
         }
         case UPDATE_NEW_MESSAGE:{
