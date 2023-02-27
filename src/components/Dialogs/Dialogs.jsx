@@ -9,12 +9,12 @@ const Dialogs = (props) => {
         <div className={styles.dialogsWrapper}>
             <div className={styles.dialogs}>
                 {props.dialogs.map((dialog) => (
-                    <DialogItem name={dialog.name} id={dialog.id} />
+                    <DialogItem name={dialog.name} id={dialog.id} key = {dialog.id} />
                 ))}
             </div>
             <div className={styles.messages}>
                 {props.messages.map((data) => (
-                    <Message message={data.message} />
+                    <Message message={data.message} key = {data.id}/>
                 ))}
                 <div className={styles.sendMessage}>
                     <SendMessage onAddMessage ={props.onAddMessage} onMessageChange ={props.onMessageChange} newMessage={props.newMessage}/>

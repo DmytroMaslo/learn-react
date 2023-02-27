@@ -1,5 +1,5 @@
 import React from "react";
-import style from './MyPosts.module.css'
+import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 
 
@@ -14,7 +14,7 @@ const MyPosts = (props) => {
 
     return (
         <div>
-            <div className={style.addPostStyle}>
+            <div className={s.addPosts}>
                 <textarea
                     ref={newPostElement}
                     value={props.newPostText}
@@ -25,10 +25,10 @@ const MyPosts = (props) => {
                 </div>
 
             </div>
-            <div className={style.posts}>New Post</div>
+            <div className={s.posts}>New Post</div>
 
             {props.posts.map(data =>
-                <Post message={data.post} id={data.id} likes={data.likes} />
+                <Post message={data.post} id={data.id} key={data.id} likes={data.likes} />
             )}
         </div>
     )

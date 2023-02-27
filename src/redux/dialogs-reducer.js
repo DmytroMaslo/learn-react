@@ -28,9 +28,7 @@ const dialogsReducer = (state = initialState, action) => {
                 id: 7,
                 message: state.newMessage,
             };
-            let stateCopy = {...state};
-            stateCopy.messages = [...state.messages]
-
+            let stateCopy = {...state,messages:[...state.messages]};
             stateCopy.messages.push(newMessageText)
             stateCopy.newMessage = '';
             console.log(stateCopy)
