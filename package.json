@@ -16,6 +16,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "api-server": "cp mockApi/db_back_up.yaml mockApi/db_stage.yaml && npx yaml-server --hotReload=off --autoStart=off --port 3050 --database ./mockApi/db_stage.yaml",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
