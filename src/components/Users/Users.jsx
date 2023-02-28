@@ -9,8 +9,8 @@ const Users = (props)=>{
                         <img className={styles.ava} src={require('./../../img/avatars/avatar2.png')}/>
                     </div>
                     {u.followed 
-                    ?<button onClick={() =>{props.unfollow(u.id)}}>Unfollow</button>
-                    :<button  onClick={() =>{props.follow(u.id)}}>Follow</button>}
+                    ?<button className={styles.unfollowbtn}onClick={() =>{props.unfollow(u.id)}}>Unfollow</button>
+                    :<button className={styles.followbtn} onClick={() =>{props.follow(u.id)}}>Follow</button>}
                     
                 </div>
                 <div className={styles.nameNdescription}>
