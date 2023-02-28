@@ -1,40 +1,52 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST = 'UPDATE-NEW-POST';
-
+const FOLLOW = 'FOLLOW';
+const UNFOLLOW = 'UNFOLLOW';
+const SET_USERS = 'SET-USERS'
 let initialState = {
     users: [
-      { id:1, avatar: 'Hi! first message', fullName:'Alexandra Neaman', country:'France', city:'Paris',description:'Some description' },
-      { id:2, avatar: 'Hi! first message', fullName:'Nicole Smith', country:'USA', city:'New York',description:'Im learning React ' },
-      { id:3, avatar: 'Hi! first message', fullName:'Samanta Stone', country:'Ukraine', city:'Kiyv',description:'So borring...' },
-      { id:4, avatar: 'Hi! first message', fullName:'Daniela Rodrigez', country:'Spain', city:'Madrid',description:'Another description' },
-      { id:5, avatar: 'Hi! first message', fullName:'Daniela Rodrigez1', country:'Spain', city:'Madrid',description:'Another 1 description' },
-      { id:6, avatar: 'Hi! first message', fullName:'Daniela Rodrigez2', country:'Spain', city:'Madrid',description:'Another 2 description' },
-      { id:7, avatar: 'Hi! first message', fullName:'Daniela Rodrigez3', country:'Spain', city:'Madrid',description:'Another 3 description' },
+      { id:1, followed:true, avatar: '/images/avatar2.png', fullName:'Alexandra Neaman', location:{country:'France', city:'Paris'},description:'Some description'},
+      { id:2, followed:true,  avatar: '/images/avatar3.png', fullName:'Nicole Smith', location:{country:'USA', city:'New York'},description:'Im learning React' },
+      { id:3, followed:false,  avatar: '/images/avatar4.png', fullName:'Samanta Stone', location:{country:'Ukraine', city:'Kiyv'},description:'So borring...' },
+      { id:4, followed:true,  avatar: '/images/avatar5.png', fullName:'Daniela Rodrigez', location:{country:'Spain', city:'Madrid'},description:'Another description'},
+      { id:5, followed:false,  avatar: '/images/avatar2.png', fullName:'Daniela Rodrigez1', location:{country:'Spain', city:'Madrid'},description:'Another 1 description'},
+      { id:6,  followed:true, avatar: '/images/avatar3.png', fullName:'Daniela Rodrigez2', location:{country:'Spain', city:'Madrid'},description:'Another 2 description'},
+      { id:7, followed:false,  avatar: '/images/avatar4.png', fullName:'Daniela Rodrigez3', location:{country:'Spain', city:'Madrid'},description:'Another 3 descriptio' },
     ],
   }
 const userReducer = (state = initialState,action)=>{
     switch (action.type){
-        case ADD_POST:{
+        case FOLLOW:{
             return {
                 ...state,
-                posts:[...state.posts,{ id: 7, post: state.newPostText, likes: 0}],
-                newPostText:''
-
+                //users:[...state.users]
+                users: state.users.map(user=>{
+                    if(user.id === action.userId){
+                        return {...user, followed:true}
+                    }
+                    return user;                    
+                })
             }
         }
-        case UPDATE_NEW_POST:{
-            return{
+        case UNFOLLOW:{
+            return {
                 ...state,
-                newPostText:action.newText
+                //users:[...state.users]
+                users: state.users.map(user=>{
+                    if(user.id === action.userId){
+                        return {...user, followed:false}
+                    }
+                    return user;                    
+                })
             }
+        }
+        case SET_USERS:{
+            return {...state,users:[...state.users, ...action.users]}
         }
         default:
             return state        
     }
 }
-export const addPostActionCreator = () => ({ type: ADD_POST })
-export const updateNewPostActionCreator = (text) => ({
-    type: UPDATE_NEW_POST,
-    newText: text
-})
+export const followAC = (userId) => ({ type: FOLLOW })
+export const unfollowAC = (userId) => ({ type: UNFOLLOW })
+export const setUsersAC = (users) => ({ type: SET_USERS, users })
+
 export default userReducer;

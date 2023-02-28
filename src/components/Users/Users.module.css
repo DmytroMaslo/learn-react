@@ -1,0 +1,31 @@
+.users{ 
+    margin: 5px;
+    padding: 5px;
+}
+.userBlock{
+    margin-top: 5px;
+    background-color: rgb(245, 248, 250);
+    display: flex;
+    border-radius: 5px;
+}
+.avaNbutton{
+    width: 60px;
+}
+.avaNbutton button{
+    width: 100%;
+    background-color: #666;
+    border: none; 
+    outline: none;
+}
+.ava{
+
+    width: 60px;
+    border-radius: 30px;
+}
+.nameNdescription{
+    width: 80%;
+    padding-left: 10px;
+}
+.nameNdescription h3{
+    color: #666;
+}
