@@ -18,6 +18,10 @@ const Navigation = () => {
         <div className={classes.item}>
             <NavLink to='/settings' className={({ isActive }) => isActive ? classes.activeLink : undefined }>Settings</NavLink>
         </div>
+        <div className={classes.item}>
+            <NavLink to='/users' className={({ isActive }) => isActive ? classes.activeLink : undefined }>Users</NavLink>
+        </div>
     </nav>
+
 }
 export default Navigation;
