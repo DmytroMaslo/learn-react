@@ -29,65 +29,23 @@ orders:
     sku: 999921312423312
 users:
   - id: 1
-    fullName: Alexandra Neaman
-    followed: true
-    avatar: null
-    country: USA
-    city: New York
-    description: Some description
+    name: cryzalis
+      id: 28174
+      uniqueUrlName: null
+      photos: {
+        small: null,
+        large: null
+      }
+      status: null
+      followed": false
+users:
   - id: 2
-    fullName: Nicole Smith
-    followed: true
-    avatar: null
-    country: France
-    city: Paris
-    description: So borring...
-  - id: 3
-    fullName: Daniela Rodrigez
-    followed: true
-    avatar: null
-    country: Spain
-    city: Madrid
-    description: 'Some description!!!'
-  - id: 4
-    fullName: Samanta Stone
-    followed: true
-    avatar: null
-    country: Ukraine
-    city: Kiyv
-    description: Im learning React
-  - id: 5
-    fullName: Alice
-    followed: true
-    avatar: null
-    country: France
-    city: Paris
-    description: 'Some description'
-  - id: 6
-    fullName: Daniela Rodrigez
-    followed: true
-    avatar: null
-    country: France
-    city: Paris
-    description: 'Some description'
-  - id: 7
-    fullName: Daniela Rodrigez
-    followed: true
-    avatar: null
-    country: France
-    city: Paris
-    description: 'Some description'
-  - id: 8
-    fullName: Daniela Rodrigez
-    followed: true
-    avatar: null
-    country: France
-    city: Paris
-    description: 'Some description'
-  - id: 9
-    fullName: Daniela Rodrigez
-    followed: true
-    avatar: null
-    country: France
-    city: Paris
-    description: Some description
+    name: second
+      id: 28175
+      uniqueUrlName: null
+      photos: {
+        small: null,
+        large: null
+      }
+      status: null
+      followed": false

@@ -3,13 +3,10 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS'
 let initialState = {
     users: [
-      { id:1, followed:true, avatar: './../../img/avatars/avatar2.png', fullName:'Alexandra Neaman', location:{country:'France', city:'Paris'},description:'Some description'},
-      { id:2, followed:true,  avatar: './../../img/avatars/avatar3.png', fullName:'Nicole Smith', location:{country:'USA', city:'New York'},description:'Im learning React' },
-      { id:3, followed:false,  avatar: './../../img/avatars/avatar4.png', fullName:'Samanta Stone', location:{country:'Ukraine', city:'Kiyv'},description:'So borring...' },
-      { id:4, followed:true,  avatar: './../../img/avatars/avatar5.png', fullName:'Daniela Rodrigez', location:{country:'Spain', city:'Madrid'},description:'Another description'},
-      { id:5, followed:false,  avatar: './../../img/avatars/avatar2.png', fullName:'Daniela Rodrigez1', location:{country:'Spain', city:'Madrid'},description:'Another 1 description'},
-      { id:6,  followed:true, avatar: './../../img/avatars/avatar3.png', fullName:'Daniela Rodrigez2', location:{country:'Spain', city:'Madrid'},description:'Another 2 description'},
-      { id:7, followed:false,  avatar: './../../img/avatars/avatar4.png', fullName:'Daniela Rodrigez3', location:{country:'Spain', city:'Madrid'},description:'Another 3 descriptio' },
+        {id: 1,name: "Alexandra Neaman",uniqueUrlName: null,photos: {small: null,large: null}, status: null, followed: false},
+        {id: 1,name: "Nicole Smith",uniqueUrlName: null,photos: {small: null,large: null}, status: null, followed: false},
+        {id: 1,name: "Samanta Stone",uniqueUrlName: null,photos: {small: null,large: null}, status: null, followed: false},
+        {id: 1,name: "Daniela Rodrigez",uniqueUrlName: null,photos: {small: null,large: null}, status: null, followed: false},
     ],
   }
 const userReducer = (state = initialState,action)=>{
