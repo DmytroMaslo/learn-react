@@ -1,7 +1,16 @@
 import React from "react";
 import styles from './Users.module.css'
 import userPhoto from '../../img/defaultAvatar.png'
+import axios from "axios";
 const Users = (props)=>{
+    if(props.users.length === 0){
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response=>{
+            console.log(response)
+            props.setUsers(response.data.items);
+        })
+            
+        
+    }
     return(<div className={styles.users}>
         {
             props.users.map(u=><div className={styles.userBlock} key={u.id}>
