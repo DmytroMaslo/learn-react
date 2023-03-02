@@ -15,26 +15,26 @@ let initialState = {
     pageSize: 5,
     totalUsersCount: 57,
     realUsersCount:0,
-    currentPage: 3
+    currentPage: 1
 }
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case FOLLOW: {
             return {
                 ...state,
-                //users:[...state.users]
                 users: state.users.map(user => {
                     if (user.id === action.userId) {
+                        
                         return { ...user, followed: true }
                     }
                     return user;
+                    
                 })
             }
         }
         case UNFOLLOW: {
             return {
                 ...state,
-                //users:[...state.users]
                 users: state.users.map(user => {
                     if (user.id === action.userId) {
                         return { ...user, followed: false }
@@ -57,8 +57,8 @@ const userReducer = (state = initialState, action) => {
             return state
     }
 }
-export const followAC = (userId) => ({ type: FOLLOW })
-export const unfollowAC = (userId) => ({ type: UNFOLLOW })
+export const followAC = (userId) => ({ type: FOLLOW,userId })
+export const unfollowAC = (userId) => ({ type: UNFOLLOW,userId })
 export const setUsersAC = (users) => ({ type: SET_USERS, users })
 export const setCurrentPageAC = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
 export const setTotalUsersCountAC = (totalCount) => ({ type: SET_TOTAL_USERS_COUNT, totalCount })
