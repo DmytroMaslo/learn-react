@@ -3,14 +3,28 @@
     background-color: #bbb;
     border-radius: 5px;
     margin: 2px;
+    vertical-align: middle;
+    line-height: 55px;
   }
 .header img{
     height: 55px;
   }
 
-  .header span{
+.header  span{
     font-size: 40px;
     color:#ddd;
     font-weight: bold;
-    padding: 10px;
+  }
+.header a {
+  text-decoration: none;
+}
+  .loginBlock{
+    float: right;
+    padding-right: 5px;
+  }
+  .loginBlock a{
+    font-weight: bold;
+    color:#ddd;
+    padding-right: 10px;
+
   }
