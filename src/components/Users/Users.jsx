@@ -2,9 +2,9 @@ import React from "react";
 import styles from './Users.module.css'
 import userPhoto from '../../img/defaultAvatar.png'
 import { NavLink } from "react-router-dom";
-import axios from "axios";
 import { userAPI } from "../../api/api";
 let Users = (props) => {
+    
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
@@ -24,18 +24,23 @@ let Users = (props) => {
                         <NavLink to={'/profile/' + u.id}><img className={styles.ava} src={u.photos.small != null ? u.photos.small : userPhoto} /></NavLink>
                     </div>
                     {u.followed
-                        ? <button className={styles.unfollowbtn} onClick={() => {
+                        ? <button disabled={props.followingInProgress.some((id)=>id===u.id)} className={styles.unfollowbtn} onClick={() => {
+            
+                            props.toggleIsFollowingProgress(true,u.id)
                             userAPI.unfollowUser(u.id).then(data => {
                                 if(data.resultCode === 0){
                                     props.unfollow(u.id)
                                 }
+                                props.toggleIsFollowingProgress(false,u.id)
                             })
                              }}>Unfollow</button>
-                        : <button className={styles.followbtn} onClick={() => { 
+                        : <button disabled={props.followingInProgress.some((id)=>id===u.id)}  className={styles.followbtn} onClick={() => { 
+                            props.toggleIsFollowingProgress(true,u.id)
                             userAPI.followUser(u.id).then(data => {
                                 if(data.resultCode === 0){
                                     props.follow(u.id)
                                 }
+                                props.toggleIsFollowingProgress(false,u.id)
                             })
                              }}>Follow</button>}
 
