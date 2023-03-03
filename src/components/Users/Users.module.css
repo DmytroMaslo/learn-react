@@ -52,13 +52,13 @@ min-width: 10%;
 }
 .pagination{
     max-width: 50%;
-
     display: block;
     margin: auto;
 }
 .pagination span{
  padding: 5px;
  border: 1px solid #999;
+ border-radius: 5px;
  margin: 5px;
  background-color: #ddd;
  cursor: pointer;

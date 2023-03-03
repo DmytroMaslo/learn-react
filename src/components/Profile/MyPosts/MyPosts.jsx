@@ -27,7 +27,7 @@ const MyPosts = (props) => {
             </div>
             <div className={s.posts}>New Post</div>
 
-            {props.posts.map(data =>
+            {props.posts.slice(0).reverse().map(data =>
                 <Post message={data.post} id={data.id} key={data.id} likes={data.likes} />
             )}
         </div>

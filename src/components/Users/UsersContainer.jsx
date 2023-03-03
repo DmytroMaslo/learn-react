@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { setUsers, follow, unfollow, setCurrentPage, setTotalUsersCount, setFetching } from "../../redux/users-reducer";
 import axios from 'axios';
 import Users from './Users';
-
-import styles from './Users.module.css'
 import Preloader from "../common/Preloader/Preloader";
 
 class UsersAPIComponent extends React.Component {
