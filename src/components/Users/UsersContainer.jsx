@@ -4,33 +4,24 @@ import { setUsers, follow, unfollow, setCurrentPage, setTotalUsersCount, setFetc
 import axios from 'axios';
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
+import { userAPI } from "../../api/api";
 
 class UsersAPIComponent extends React.Component {
 
     componentDidMount() {
         this.props.setFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,{
-            withCredentials:true,
-            headers:{
-                "API-KEY":"7f3c19d9-d088-4b96-b87d-d55584ecdcbe"
-            }
-        }).then(response => {
+        userAPI.getUsers(this.props.currentPage,this.props.pageSize).then(data => {
             this.props.setFetching(false);
-            this.props.setUsers(response.data.items);
-            this.props.setTotalUsersCount(response.data.totalCount);
+            this.props.setUsers(data.items);
+            this.props.setTotalUsersCount(data.totalCount);
         })
     }
     onPageChanged(pageNumber) {
         this.props.setFetching(true);
         this.props.setCurrentPage(pageNumber)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,{
-            withCredentials:true,
-            headers:{
-                "API-KEY":"7f3c19d9-d088-4b96-b87d-d55584ecdcbe"
-            }
-        }).then(response => {
+        userAPI.getUsers(pageNumber,this.props.pageSize).then(data => {
             this.props.setFetching(false);
-            this.props.setUsers(response.data.items);
+            this.props.setUsers(data.items);
         })
     }
 
