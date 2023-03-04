@@ -21,7 +21,7 @@ let Users = (props) => {
             props.users.map(u => <div className={styles.userBlock} key={u.id}>
                 <div className={styles.avaNbutton} >
                     <div >
-                        <NavLink to={'/profile/' + u.id}><img className={styles.ava} src={u.photos.small != null ? u.photos.small : userPhoto} /></NavLink>
+                        <NavLink to={'/profile/' + u.id}><img className={styles.ava} alt='some value' src={u.photos.small != null ? u.photos.small : userPhoto} /></NavLink>
                     </div>
                     {u.followed
                         ? <button disabled={props.followingInProgress.some((id)=>id===u.id)} className={styles.unfollowbtn} onClick={() => {

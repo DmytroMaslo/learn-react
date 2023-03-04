@@ -1,3 +1,5 @@
+import { userAPI } from "../api/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
@@ -19,7 +21,7 @@ let initialState = {
     realUsersCount: 0,
     currentPage: 1,
     isFetching: true,
-    followingInProgress:[28238,28237],
+    followingInProgress: [28238, 28237],
 }
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -59,10 +61,12 @@ const userReducer = (state = initialState, action) => {
             return { ...state, isFetching: action.isFetching }
         }
         case TOGGLE_IS_FOLOWING_PROCESS: {
-            return { ...state,
+            return {
+                ...state,
                 followingInProgress: action.isFetching
-                ? [...state.followingInProgress, action.userId]
-            : state.followingInProgress.filter(id=>id!=action.userId) }
+                    ? [...state.followingInProgress, action.userId]
+                    : state.followingInProgress.filter(id => id !== action.userId)
+            }
         }
         default:
             return state
@@ -74,7 +78,27 @@ export const setUsers = (users) => ({ type: SET_USERS, users })
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
 export const setTotalUsersCount = (totalCount) => ({ type: SET_TOTAL_USERS_COUNT, totalCount })
 export const setFetching = (isFetching) => ({ type: SET_FETCHING, isFetching })
-export const toggleIsFollowingProgress = (isFetching,userId) => ({ type: TOGGLE_IS_FOLOWING_PROCESS, isFetching,userId })
+export const toggleIsFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_IS_FOLOWING_PROCESS, isFetching, userId })
 
+export const getUsers = (currentPage, pageSize)=>{
+    return (dispatch) => {
+        dispatch(setFetching(true));
+        userAPI.getUsers(currentPage, pageSize).then(data => {
+            dispatch(setFetching(false));
+            dispatch(setUsers(data.items));
+            dispatch(setTotalUsersCount(data.totalCount));
+        })
+    }
+}
+export const getUsersOnPageChanged = (pageNumber,pageSize)=>{
+    return (dispatch) => {
+        dispatch(setFetching(true));
+        dispatch(setCurrentPage(pageNumber))
+        userAPI.getUsers(pageNumber,pageSize).then(data => {
+            dispatch(setFetching(false));
+            dispatch(setUsers(data.items));
+        })
+    }
+}
 
 export default userReducer;
