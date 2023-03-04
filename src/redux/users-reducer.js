@@ -19,7 +19,7 @@ let initialState = {
     pageSize: 5,
     totalUsersCount: 57,
     realUsersCount: 0,
-    currentPage: 1,
+    currentPage: 3,
     isFetching: true,
     followingInProgress: [28238, 28237],
 }
@@ -80,17 +80,7 @@ export const setTotalUsersCount = (totalCount) => ({ type: SET_TOTAL_USERS_COUNT
 export const setFetching = (isFetching) => ({ type: SET_FETCHING, isFetching })
 export const toggleIsFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_IS_FOLOWING_PROCESS, isFetching, userId })
 
-export const getUsers = (currentPage, pageSize) => {
-    return (dispatch) => {
-        dispatch(setFetching(true));
-        userAPI.getUsers(currentPage, pageSize).then(data => {
-            dispatch(setFetching(false));
-            dispatch(setUsers(data.items));
-            dispatch(setTotalUsersCount(data.totalCount));
-        })
-    }
-}
-export const getUsersOnPageChanged = (pageNumber, pageSize) => {
+export const getUsers = (pageNumber, pageSize) => {
     return (dispatch) => {
         dispatch(setFetching(true));
         dispatch(setCurrentPage(pageNumber))
@@ -101,7 +91,6 @@ export const getUsersOnPageChanged = (pageNumber, pageSize) => {
     }
 }
 export const follow = (userId) => {
-    
     return (dispatch) => {
         dispatch(toggleIsFollowingProgress(true, userId))
         userAPI.followUser(userId).then(data => {

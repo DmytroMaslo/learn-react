@@ -4,7 +4,7 @@ import userPhoto from '../../img/defaultAvatar.png'
 import { NavLink } from "react-router-dom";
 import { userAPI } from "../../api/api";
 let Users = (props) => {
-    
+
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
@@ -21,15 +21,15 @@ let Users = (props) => {
             props.users.map(u => <div className={styles.userBlock} key={u.id}>
                 <div className={styles.avaNbutton} >
                     <div >
-                        <NavLink to={'/profile/' + u.id}><img className={styles.ava} alt='some value' src={u.photos.small != null ? u.photos.small : userPhoto} /></NavLink>
+                        <NavLink to={'/profile/' + u.id}><img className={styles.ava} src={u.photos.small != null ? u.photos.small : userPhoto} /></NavLink>
                     </div>
                     {u.followed
-                        ? <button disabled={props.followingInProgress.some((id)=>id===u.id)} className={styles.unfollowbtn} onClick={() => {
-                            props.unfollow(u.id)
-                             }}>Unfollow</button>
-                        : <button disabled={props.followingInProgress.some((id)=>id===u.id)}  className={styles.followbtn} onClick={() => { 
-                            props.follow(u.id)
-                             }}>Follow</button>}
+                        ? <button disabled={props.followingInProgress.some((id) => id === u.id)}
+                            className={styles.unfollowbtn}
+                            onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
+
+                        : <button disabled={props.followingInProgress.some((id) => id === u.id)}
+                            className={styles.followbtn} onClick={() => { props.follow(u.id) }}>Follow</button>}
 
                 </div>
                 <div className={styles.nameNdescription}>
