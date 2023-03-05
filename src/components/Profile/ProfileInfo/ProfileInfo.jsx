@@ -23,6 +23,10 @@ const ProfileInfo = (props) => {
                     <span>{props.profile != undefined 
                     ?props.profile.userId
                     :''  }</span>
+                    <span><h4>About me: </h4></span>
+                    <span>{props.profile != undefined 
+                    ?props.profile.aboutMe
+                    :''  }</span>
                 </div>
             </div>
     )
