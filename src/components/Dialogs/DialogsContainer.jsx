@@ -5,26 +5,25 @@ import { connect } from "react-redux";
 import AuthRedirectComponent, { withAuthRedirect } from "../login/AuthRedirectComponent";
 
 
-let mapStateToProps = (state) =>{
-    return{
-        dialogs:state.dialogsPage.dialogs,
-        messages:state.dialogsPage.messages,
-        newMessage:state.dialogsPage.newMessage,
-        isAuth:state.auth.isAuth,
+let mapStateToProps = (state) => {
+    return {
+        dialogs: state.dialogsPage.dialogs,
+        messages: state.dialogsPage.messages,
+        newMessage: state.dialogsPage.newMessage,
     }
 }
-let mapDispatchToProps = (dispatch) =>{
+let mapDispatchToProps = (dispatch) => {
     return {
-        onMessageChange:(textMessage)=>{
+        onMessageChange: (textMessage) => {
             dispatch(updateNewMessageActionCreator(textMessage))
         },
-        onAddMessage:()=>{
+        onAddMessage: () => {
             dispatch(addMessageActionCreator())
         }
     }
 }
 let MyAuthRedirectComponent = withAuthRedirect(Dialogs)
-const DialogsContainer = connect(mapStateToProps,mapDispatchToProps)(MyAuthRedirectComponent);
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(MyAuthRedirectComponent);
 export default DialogsContainer;
 
 
