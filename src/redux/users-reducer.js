@@ -33,7 +33,6 @@ const userReducer = (state = initialState, action) => {
                         return { ...user, followed: true }
                     }
                     return user;
-
                 })
             }
         }
@@ -94,7 +93,6 @@ export const follow = (userId) => {
     return (dispatch) => {
         dispatch(toggleIsFollowingProgress(true, userId))
         userAPI.followUser(userId).then(data => {
-            console.log(data)
             if (data.resultCode === 0) {
                 dispatch(followAC(userId))
                 

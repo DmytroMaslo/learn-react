@@ -8,12 +8,10 @@ let initialState = {
     login: null,
     isAuth:false,
     isFetching: false,
-
 }
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_DATA: {
-            console.log('action: ' + action.data)
             return {
                 ...state,
                 ...action.data,
@@ -24,6 +22,7 @@ const authReducer = (state = initialState, action) => {
             return state
     }
 }
+
 export const setAuthUserData = (userId,email,login) => ({ type: SET_USER_DATA, data:{userId,email,login} })
 
 export const getAuthUserData = () => {

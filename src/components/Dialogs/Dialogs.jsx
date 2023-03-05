@@ -3,11 +3,15 @@ import styles from './Dialogs.module.css';
 import DialogItem from "./dialog/DialogItem";
 import Message from "./message/Message";
 import SendMessage from "./sendMessage/SendMessage";
+import { Navigate } from "react-router-dom";
 const Dialogs = (props) => {
-
+    if (!props.isAuth){
+        return <Navigate to='/login'/>
+    }
     return (
         <div className={styles.dialogsWrapper}>
             <div className={styles.dialogs}>
+                <div>{props.isAuth}</div>
                 {props.dialogs.map((dialog) => (
                     <DialogItem name={dialog.name} id={dialog.id} key = {dialog.id} />
                 ))}
