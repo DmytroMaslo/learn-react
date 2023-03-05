@@ -8,7 +8,6 @@ const Profile = (props)=>{
     if (!props.isAuth){
         return <Navigate to='/login'/>
     }
-
     return <div className={styles.content}>
             <ProfileInfo profile={props.profile}/>
             <MyPostsContainer />

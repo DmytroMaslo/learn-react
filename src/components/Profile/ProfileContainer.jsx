@@ -5,6 +5,7 @@ import {setUserProfile,getUserProfile} from './../../redux/profile-reducer';
 import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { userAPI } from "../../api/api";
+import { withAuthRedirect } from "../login/AuthRedirectComponent";
 /**api-key: 7f3c19d9-d088-4b96-b87d-d55584ecdcbe */
 class ProfileContainer extends React.Component{
 
@@ -28,6 +29,7 @@ let mapStateToProps = (state) =>({
     profile:state.profilePage.profile,
     isAuth:state.auth.isAuth
 });
+
 let withRouter  = (Component) => {
     function ComponentWithRouterProp(props) {
         let location = useLocation();
@@ -43,4 +45,6 @@ let withRouter  = (Component) => {
 
     return ComponentWithRouterProp;
 }
-export default connect(mapStateToProps, {setUserProfile,getUserProfile})(withRouter(ProfileContainer));
+let MyAuthRedirectComponentWithData = withRouter(withAuthRedirect(ProfileContainer))
+
+export default connect(mapStateToProps, {setUserProfile,getUserProfile})(MyAuthRedirectComponentWithData);
