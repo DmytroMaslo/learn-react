@@ -9,7 +9,6 @@ const MyPosts = (props) => {
     let onPostChange = () => {
         let text = newPostElement.current.value;
         props.updateNewPostText(text)
-
     }
 
     return (
@@ -23,7 +22,6 @@ const MyPosts = (props) => {
                 <div>
                     <button onClick={props.onAddPost}>Add post</button>
                 </div>
-
             </div>
             <div className={s.posts}>New Post</div>
 

@@ -20,3 +20,8 @@
     float: left;
     margin-right: 10px;
 }
+.status{
+    min-width: 100%;
+    border-radius: 5px;
+    height: 30px;
+}
