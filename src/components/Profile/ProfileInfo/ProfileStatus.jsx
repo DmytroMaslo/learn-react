@@ -1,34 +1,44 @@
 import React from "react";
 import styles from "./ProfileInfo.module.css"
-class ProfileStatus extends React.Component{
-    changeStatus(){
-        return false
-    }
+class ProfileStatus extends React.Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.statusInput = React.createRef();
+    // }
     state = {
-        editMode:false
+        editMode: false,
+        status: this.props.userStatus
     }
-    toggleEditMode(){
+    toggleEditMode = () => {
         this.setState((state) => {
-            return {editMode: !state.editMode};
-          });
+            return { editMode: !state.editMode };
+        });
+    }
+    deactivateEditMode = () => {
+        this.setState((state) => {
+            return { editMode: false};
+        });
+        this.props.updateStatus(this.state.status)
+    }
+    onStatusChange = (e) =>{
+        this.setState({
+            status:e.currentTarget.value
+        })
+        
     }
     render() {
         return (
             <div>
                 {this.state.editMode === false ?
-                <div>
-                    <span onDoubleClick={this.toggleEditMode.bind(this)}>{this.props.aboutMe !== undefined
-                        ? this.props.aboutMe
-                        : ''}</span>
-                </div>
-                :<div>
-                    <input autoFocus={true} onBlur={this.toggleEditMode.bind(this)} onChange={this.changeStatus}className={styles.status} value={this.props.aboutMe !== undefined
-                        ? this.props.aboutMe
-                        : ''} />
-                </div>
+                    <div>
+                        <span onDoubleClick={this.toggleEditMode}>{this.props.userStatus == undefined ? 'aaa':this.props.userStatus}</span>
+                    </div>
+                    : <div>
+                        <input onChange={this.onStatusChange}ref={this.statusInput} autoFocus={true} onBlur={this.deactivateEditMode} className={styles.status} value={this.state.status} />
+                    </div>
                 }
             </div>
         )
     }
 }
-export default  ProfileStatus;
+export default ProfileStatus;

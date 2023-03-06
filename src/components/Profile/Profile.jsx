@@ -7,9 +7,10 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 const Profile = (props)=>{
     if (!props.isAuth){
         return <Navigate to='/login'/>
-    }
+    } 
+
     return <div className={styles.content}>
-            <ProfileInfo profile={props.profile}/>
+            <ProfileInfo profile={props.profile} updateStatus={props.updateStatus} setStatus={props.setStatus} userStatus={props.userStatus}/>
             <MyPostsContainer profile={props.profile}/>
 
     </div>

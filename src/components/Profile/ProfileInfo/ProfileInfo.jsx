@@ -8,21 +8,24 @@ const ProfileInfo = (props) => {
         return <Preloader />
     }
     //console.log(props)
+
     return (
         <div>
             <div className={styles.userInfo}>
                 <img className={styles.userAvatar} src={props.profile.photos.small != null
                     ? props.profile.photos.small
                     : defaultAvatar} />
-                <h4>{props.profile != undefined
+                <h4>{props.profile.fullName !== undefined
                     ? props.profile.fullName
                     : ''}</h4>
-                <span>{props.profile != undefined
+                <span>{props.profile.userId !== undefined
                     ? props.profile.userId
                     : ''}</span>
                 <span><h4>About me: </h4></span>
-                <ProfileStatus aboutMe={props.profile.aboutMe}/>
+                <ProfileStatus userStatus={props.userStatus} updateStatus={props.updateStatus}/>
+                <span><p>Status</p></span>
             </div>
+
         </div>
     )
 }
