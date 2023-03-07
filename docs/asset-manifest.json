@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/learn-react/static/css/main.e4df9a16.css",
-    "main.js": "/learn-react/static/js/main.0f86ebad.js",
+    "main.css": "/learn-react/static/css/main.79abe71a.css",
+    "main.js": "/learn-react/static/js/main.3c6ba660.js",
     "static/js/787.28cb0dcd.chunk.js": "/learn-react/static/js/787.28cb0dcd.chunk.js",
-    "static/media/contentHeader.png": "/learn-react/static/media/contentHeader.c44fe37e81860ac502d6.png",
     "static/media/defaultAvatar.png": "/learn-react/static/media/defaultAvatar.f468e4b90c8714971210.png",
-    "static/media/avaLogo.jpg": "/learn-react/static/media/avaLogo.c9fdfdaebbf5eb6dfe1f.jpg",
     "static/media/spiner.gif": "/learn-react/static/media/spiner.757857ce13a4e4e598e4.gif",
     "static/media/headerFont.ttf": "/learn-react/static/media/headerFont.e982a4080929ee946a8b.ttf",
     "static/media/logo.png": "/learn-react/static/media/logo.a6c931d6f6bb20c9f30d.png",
+    "static/media/default-user.jpg": "/learn-react/static/media/default-user.708ba44750603c5994b7.jpg",
     "index.html": "/learn-react/index.html",
-    "main.e4df9a16.css.map": "/learn-react/static/css/main.e4df9a16.css.map",
-    "main.0f86ebad.js.map": "/learn-react/static/js/main.0f86ebad.js.map",
+    "main.79abe71a.css.map": "/learn-react/static/css/main.79abe71a.css.map",
+    "main.3c6ba660.js.map": "/learn-react/static/js/main.3c6ba660.js.map",
     "787.28cb0dcd.chunk.js.map": "/learn-react/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e4df9a16.css",
-    "static/js/main.0f86ebad.js"
+    "static/css/main.79abe71a.css",
+    "static/js/main.3c6ba660.js"
   ]
 }
