@@ -58,12 +58,9 @@ const profileReducer = (state = initialState, action) => {
             }
         }
         case SET_STATUS: {
-            console.log('set status')
-            console.log(state)
             return {
                 ...state,
                 status: action.status,
-
             }
         }
         default:

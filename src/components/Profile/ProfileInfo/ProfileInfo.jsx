@@ -7,7 +7,6 @@ const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader />
     }
-    //console.log(props)
 
     return (
         <div>
@@ -21,9 +20,8 @@ const ProfileInfo = (props) => {
                 <span>{props.profile.userId !== undefined
                     ? props.profile.userId
                     : ''}</span>
-                <span><h4>About me: </h4></span>
-                <ProfileStatus userStatus={props.userStatus} updateStatus={props.updateStatus}/>
-                <span><p>Status</p></span>
+                <span><h4>Status </h4></span>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
             </div>
 
         </div>

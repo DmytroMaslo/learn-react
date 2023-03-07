@@ -7,7 +7,7 @@ class ProfileStatus extends React.Component {
     // }
     state = {
         editMode: false,
-        status: this.props.userStatus
+        status: this.props.status
     }
     toggleEditMode = () => {
         this.setState((state) => {
@@ -16,25 +16,30 @@ class ProfileStatus extends React.Component {
     }
     deactivateEditMode = () => {
         this.setState((state) => {
-            return { editMode: false};
+            return { editMode: false };
         });
         this.props.updateStatus(this.state.status)
     }
-    onStatusChange = (e) =>{
+    onStatusChange = (e) => {
         this.setState({
-            status:e.currentTarget.value
+            status: e.currentTarget.value
         })
-        
+    }
+    componentDidUpdate(prevProps,prevState){
+        if(prevProps.status !== this.props.status){
+            this.setState({status:this.props.status})
+        }
     }
     render() {
+        console.log('render')
         return (
             <div>
                 {this.state.editMode === false ?
                     <div>
-                        <span onDoubleClick={this.toggleEditMode}>{this.props.userStatus == undefined ? 'aaa':this.props.userStatus}</span>
+                        <span onDoubleClick={this.toggleEditMode}>{this.props.status}</span>
                     </div>
                     : <div>
-                        <input onChange={this.onStatusChange}ref={this.statusInput} autoFocus={true} onBlur={this.deactivateEditMode} className={styles.status} value={this.state.status} />
+                        <input onChange={this.onStatusChange} ref={this.statusInput} autoFocus={true} onBlur={this.deactivateEditMode} className={styles.status} value={this.state.status} />
                     </div>
                 }
             </div>
