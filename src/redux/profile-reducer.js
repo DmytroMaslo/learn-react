@@ -87,7 +87,6 @@ export const getUserProfile = (userId) => {
 // })
 export const setNewStatus = (status) => ({ type: SET_NEW_STATUS, })
 
-
 export const setStatus = (status) => ({ type: SET_STATUS, status })
 export const getStatus = (userId) => {
     return (dispath) => {
@@ -101,6 +100,15 @@ export const updateStatus = (status) => {
         profileAPI.updateStatus(status).then(response => {
             if (response.data.resultCode === 0) {
                 dispath(setStatus(status));
+            }
+        })
+    }
+}
+export const login = (data) => {
+    return (dispath) => {
+        profileAPI.login(data).then(response => {
+            if (response.data.resultCode === 0) {
+                dispath(getUserProfile(response.data.data.userId));
             }
         })
     }

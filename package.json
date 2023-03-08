@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "social-network",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://dmytromaslo.github.io/learn-react/",
@@ -8,25 +8,27 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.3.4",
+    "final-form": "^4.20.9",
     "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.0.5",
+    "react-final-form": "^6.5.9",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
+    "redux-form": "^8.3.9",
     "redux-thunk": "^2.4.2",
     "save-dev": "^0.0.1-security",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "api-server": "cp mockApi/db_back_up.yaml mockApi/db_stage.yaml && npx yaml-server --hotReload=off --autoStart=off --port 3050 --database ./mockApi/db_stage.yaml",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "stop": "taskkill -F -IM node.exe"
   },
   "eslintConfig": {
     "extends": [

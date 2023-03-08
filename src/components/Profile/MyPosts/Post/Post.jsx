@@ -4,6 +4,7 @@ import defaultAvatar from './../../../../img/default-user.jpg'
 
 
 const Post = (props) => {
+
     return <div className={style.item}>
         <img src={defaultAvatar} />
         {props.message}

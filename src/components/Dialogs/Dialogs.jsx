@@ -2,7 +2,7 @@ import React from "react";
 import styles from './Dialogs.module.css';
 import DialogItem from "./dialog/DialogItem";
 import Message from "./message/Message";
-import SendMessage from "./sendMessage/SendMessage";
+import SendMessageForm from "./sendMessage/SendMessageForm";
 import { Navigate } from "react-router-dom";
 const Dialogs = (props) => {
     if (!props.isAuth){
@@ -21,7 +21,7 @@ const Dialogs = (props) => {
                     <Message message={data.message} key = {data.id}/>
                 ))}
                 <div className={styles.sendMessage}>
-                    <SendMessage onAddMessage ={props.onAddMessage} onMessageChange ={props.onMessageChange} newMessage={props.newMessage}/>
+                    <SendMessageForm onAddMessage ={props.onAddMessage} onMessageChange ={props.onMessageChange} newMessage={props.newMessage}/>
                 </div>
             </div>
 
