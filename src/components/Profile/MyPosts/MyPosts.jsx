@@ -1,29 +1,43 @@
 import React from "react";
+import { Field, Form } from "react-final-form";
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 
 
-const MyPosts = (props) => {
-    let newPostElement = React.createRef();
-
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text)
-    }
-    console.log(props)
+const NewPostForm = (props) => {
 
     return (
+        <Form
+            onSubmit={values => {
+                console.log(values)
+                props.onAddPost(values.newPostText)
+            }}
+            validate={values => {
+            }}
+            render={({ handleSubmit, form, submitting, pristine, values }) => (
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <Field
+                            name="newPostText"
+                            component="textarea"
+                            type="text"
+                            placeholder="Type your new post"
+                        />
+                    </div>
+                    <div className="buttons">
+                        <button type="submit" disabled={submitting || pristine}>
+                            Add post
+                        </button>
+                    </div>
+                </form>
+            )}
+        />
+    )
+}
+const MyPosts = (props) => {
+    return (
         <div>
-            <div className={s.addPosts}>
-                <textarea
-                    ref={newPostElement}
-                    value={props.newPostText}
-                    onChange={onPostChange}
-                >Type text here</textarea>
-                <div>
-                    <button onClick={props.onAddPost}>Add post</button>
-                </div>
-            </div>
+            <NewPostForm onAddPost={props.onAddPost}/>
             <div className={s.posts}>New Post</div>
 
             {props.posts.slice(0).reverse().map(data =>
