@@ -35,7 +35,7 @@ export const userAPI = {
 }
 export  const profileAPI = {
     login(data){
-        return instance.post(` /auth/login`,{
+        return instance.post(`/auth/login`,{
             email: data.email,
             password: data.password,
             rememberMe:data.rememberMe

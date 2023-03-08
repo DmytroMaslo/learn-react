@@ -3,20 +3,6 @@ import styles from './SendMessage.module.css';
 import { Field, Form } from "react-final-form";
 
 
-const SendMessage = (props) => {
-
-    let newMessageText = React.createRef();
-
-    let onMessageChange = () => {
-        let textMessage = newMessageText.current.value;
-        props.onMessageChange(textMessage)
-    }
-    return (
-        <div className={styles.sendMessage}>
-
-        </div>
-    )
-}
 const SendMessageForm = (props) => {
     return (
         <Form className={styles.sendMessage}
