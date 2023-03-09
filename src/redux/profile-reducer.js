@@ -17,7 +17,6 @@ let initialState = {
         { id: 5, post: 'Just another post', likes: 9 },
         { id: 6, post: 'More post is better', likes: 13 },
     ],
-    newPostText: 'data from state',
     profile: null,
     status: '',
 }
@@ -29,12 +28,6 @@ const profileReducer = (state = initialState, action) => {
                 posts: [...state.posts, { id: 7, post: action.post, likes: 0 }],
                 newPostText: ''
 
-            }
-        }
-        case UPDATE_NEW_POST: {
-            return {
-                ...state,
-                newPostText: action.newText
             }
         }
         case SET_USER_PROFILE: {
@@ -68,10 +61,7 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 export const addPostActionCreator = (postText) => ({ type: ADD_POST,post:postText })
-export const updateNewPostActionCreator = (text) => ({
-    type: UPDATE_NEW_POST,
-    newText: text
-})
+
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const getUserProfile = (userId) => {
     return (dispath) => {

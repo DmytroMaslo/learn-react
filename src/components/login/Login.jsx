@@ -27,21 +27,30 @@ const LoginForm = (props) => {
                     <label>Login</label>
                     <div>
 
-                        <Field
-                            name="email"
-                            component="input"
-                            type="text"
-                            placeholder="Login"
-                        />
+                        <Field name="email" component="input"type="text" placeholder="Email"
+                            validate={value => value ? undefined : 'Required'}>
+                            {({ input, meta, placeholder }) => (
+                                <div>
+                                    <input {...input} placeholder={placeholder} />
+                                    {meta.error && meta.touched ? meta.error : ''}
+                                </div>
+                                )}
+                        </Field>
                     </div>
                     <label>Password</label>
                     <div>
-                        <Field
-                            name="password"
-                            component="input"
-                            type="text"
-                            placeholder="Password"
-                        />
+
+                        <Field name="password" component="input" type="text" placeholder="Password"
+                            validate={value => value ? undefined : 'Required'}>
+                            {({ input, meta, placeholder }) => (
+                                <div>
+                                    <input {...input} placeholder={placeholder} />
+                                    {meta.error && meta.touched ? meta.error : ''}
+                                </div>
+                                )}
+                        </Field>
+
+
                     </div>
                     <div>
                         <label>Remember me</label>
@@ -51,13 +60,6 @@ const LoginForm = (props) => {
                     <div className="buttons">
                         <button type="submit" disabled={submitting || pristine}>
                             Submit
-                        </button>
-                        <button
-                            type="button"
-                            onClick={form.reset}
-                            disabled={submitting || pristine}
-                        >
-                            Reset
                         </button>
                     </div>
                 </form>

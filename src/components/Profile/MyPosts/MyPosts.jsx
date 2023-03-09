@@ -22,6 +22,7 @@ const NewPostForm = (props) => {
                             component="textarea"
                             type="text"
                             placeholder="Type your new post"
+                            validate={value=>value?undefined:'Required'}
                         />
                     </div>
                     <div className="buttons">
