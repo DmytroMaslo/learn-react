@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form'
+import styles from './Login.module.css'
 
 const Login = (props) => {
     return (
@@ -30,8 +31,8 @@ const LoginForm = (props) => {
                         <Field name="email" component="input"type="text" placeholder="Email"
                             validate={value => value ? undefined : 'Required'}>
                             {({ input, meta, placeholder }) => (
-                                <div>
-                                    <input {...input} placeholder={placeholder} />
+                                <div className={styles.error}>
+                                    <input {...input} placeholder={placeholder} className={meta.error && meta.touched ? styles.inputError: ''}/>
                                     {meta.error && meta.touched ? meta.error : ''}
                                 </div>
                                 )}
@@ -39,18 +40,15 @@ const LoginForm = (props) => {
                     </div>
                     <label>Password</label>
                     <div>
-
                         <Field name="password" component="input" type="text" placeholder="Password"
                             validate={value => value ? undefined : 'Required'}>
                             {({ input, meta, placeholder }) => (
-                                <div>
-                                    <input {...input} placeholder={placeholder} />
+                                <div className={styles.error}>
+                                    <input {...input} placeholder={placeholder} className={meta.error && meta.touched ? styles.inputError: ''}/>
                                     {meta.error && meta.touched ? meta.error : ''}
                                 </div>
                                 )}
                         </Field>
-
-
                     </div>
                     <div>
                         <label>Remember me</label>
