@@ -1,4 +1,4 @@
-import { userAPI } from "../api/api";
+import { profileAPI, userAPI } from "../api/api";
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
@@ -15,7 +15,6 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 ...action.data,
-                isAuth:true
             }
         }
         default:
@@ -23,18 +22,35 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-export const setAuthUserData = (userId,email,login) => ({ type: SET_USER_DATA, data:{userId,email,login} })
+export const setAuthUserData = (userId,email,login,isAuth) => ({ type: SET_USER_DATA, data:{userId,email,login,isAuth} })
 
 export const getAuthUserData = () => {
     return (dispatch) => {
         userAPI.authUser().then(response => {
             if(response.resultCode===0){
-                dispatch(setAuthUserData(response.data.id,response.data.email,response.data.login))
+                dispatch(setAuthUserData(response.data.id,response.data.email,response.data.login,true))
             }
         })
     }
 }
-
+export const login = (data) => {
+    return (dispath) => {
+        profileAPI.login(data).then(response => {
+            if (response.data.resultCode === 0) {
+                dispath(getAuthUserData());
+            }
+        })
+    }
+}
+export const logout = () => {
+    return (dispath) => {
+        profileAPI.logout().then(response => {
+            if (response.data.resultCode === 0) {
+                dispath(setAuthUserData(null,null,null,false));
+            }
+        })
+    }
+}
 
 
 export default authReducer;

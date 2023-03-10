@@ -41,6 +41,9 @@ export  const profileAPI = {
             rememberMe:data.rememberMe
           })
     },
+    logout(){
+        return instance.delete(`/auth/login`)
+    },
     getUserProfile(userId) {
         return instance.get(`profile/${userId}`)
     },

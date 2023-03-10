@@ -1,5 +1,5 @@
 import React from "react";
-import { login } from "../../redux/profile-reducer";
+import {login,logout} from '../../redux/auth-reducer';
 import Login from "./Login";
 import { connect } from "react-redux";
 import { compose } from "redux";
@@ -7,12 +7,16 @@ import { compose } from "redux";
 
 let mapStateToProps = (state) => {
     return {
+        isAuth:state.auth.isAuth
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
         login: (data) => {
             dispatch(login(data))
+        },
+        logout: () => {
+            dispatch(logout())
         }
     }
 }

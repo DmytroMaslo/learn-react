@@ -1,8 +1,13 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form'
+import { Navigate } from 'react-router-dom';
 import styles from './Login.module.css'
 
 const Login = (props) => {
+
+    if(props.isAuth===true){
+        return <Navigate to='/profile' />
+    }
     return (
         <div>
             <LoginForm login={props.login} />
@@ -18,7 +23,6 @@ const LoginForm = (props) => {
         <Form
             initialValues={{ rememberMe: true }}
             onSubmit={values => {
-                console.log(values)
                 props.login(values)
             }}
             validate={values => {
