@@ -1,6 +1,7 @@
 import { profileAPI, userAPI } from "../api/api";
 
 const SET_USER_DATA = 'SET_USER_DATA';
+const FAIL_LOGIN='FAIL_LOGIN';
 
 let initialState = {
     userId: 2,
@@ -8,6 +9,7 @@ let initialState = {
     login: null,
     isAuth:false,
     isFetching: false,
+    authError:null
 }
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -17,11 +19,17 @@ const authReducer = (state = initialState, action) => {
                 ...action.data,
             }
         }
+        case FAIL_LOGIN:{
+            return {
+                ...state,
+                authError:action.message,
+            }
+        }
         default:
             return state
     }
 }
-
+export const setAuthError = (message) => ({ type: FAIL_LOGIN, message})
 export const setAuthUserData = (userId,email,login,isAuth) => ({ type: SET_USER_DATA, data:{userId,email,login,isAuth} })
 
 export const getAuthUserData = () => {
@@ -36,8 +44,11 @@ export const getAuthUserData = () => {
 export const login = (data) => {
     return (dispath) => {
         profileAPI.login(data).then(response => {
+            
             if (response.data.resultCode === 0) {
                 dispath(getAuthUserData());
+            }else{
+                dispath(setAuthError(response.data.messages[0]))
             }
         })
     }

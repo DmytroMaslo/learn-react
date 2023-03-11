@@ -16,10 +16,10 @@ let initialState = {
          {id: 4,name: "Daniela Rodrigez",uniqueUrlName: null,photos: {small: null,large: null}, status: null, followed: false},
      */
     ],
-    pageSize: 5,
-    totalUsersCount: 57,
+    pageSize: 10,
+    totalUsersCount: 112,
     realUsersCount: 0,
-    currentPage: 3,
+    currentPage: 1,
     isFetching: true,
     followingInProgress: [28238, 28237],
 }

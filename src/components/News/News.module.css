@@ -1,0 +1,15 @@
+.newsItem{
+    border: 1px solid #666;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    float: left;
+    min-width: 95%;
+}
+.newsItem h3{
+    color: #222;
+}
+.panel{
+    height: 100%;
+    float: right;
+}

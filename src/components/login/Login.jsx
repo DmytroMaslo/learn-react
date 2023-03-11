@@ -5,11 +5,12 @@ import styles from './Login.module.css'
 
 const Login = (props) => {
 
-    if(props.isAuth===true){
+    if (props.isAuth === true) {
         return <Navigate to='/profile' />
     }
     return (
         <div>
+            <span className={styles.error}>{props.authError !== null ? props.authError : ''}</span>
             <LoginForm login={props.login} />
             <div>
                 <strong>Email:</strong> free@samuraijs.com   <strong>Password:</strong>free
@@ -32,14 +33,14 @@ const LoginForm = (props) => {
                     <label>Login</label>
                     <div>
 
-                        <Field name="email" component="input"type="text" placeholder="Email"
+                        <Field name="email" component="input" type="text" placeholder="Email"
                             validate={value => value ? undefined : 'Required'}>
                             {({ input, meta, placeholder }) => (
                                 <div className={styles.error}>
-                                    <input {...input} placeholder={placeholder} className={meta.error && meta.touched ? styles.inputError: ''}/>
+                                    <input {...input} placeholder={placeholder} className={meta.error && meta.touched ? styles.inputError : ''} />
                                     {meta.error && meta.touched ? meta.error : ''}
                                 </div>
-                                )}
+                            )}
                         </Field>
                     </div>
                     <label>Password</label>
@@ -48,10 +49,10 @@ const LoginForm = (props) => {
                             validate={value => value ? undefined : 'Required'}>
                             {({ input, meta, placeholder }) => (
                                 <div className={styles.error}>
-                                    <input {...input} placeholder={placeholder} className={meta.error && meta.touched ? styles.inputError: ''}/>
+                                    <input {...input} placeholder={placeholder} className={meta.error && meta.touched ? styles.inputError : ''} />
                                     {meta.error && meta.touched ? meta.error : ''}
                                 </div>
-                                )}
+                            )}
                         </Field>
                     </div>
                     <div>

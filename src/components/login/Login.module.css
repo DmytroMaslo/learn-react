@@ -1,7 +1,8 @@
-.error{
+.error {
     color: red;
     font-weight: bold;
 }
-.inputError{
+
+.inputError {
     border: 2px solid red;
 }
