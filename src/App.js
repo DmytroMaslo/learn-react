@@ -10,15 +10,19 @@ import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import LoginContainer from './components/login/LoginContainer';
-import { getAuthUserData } from "./redux/auth-reducer";
+import { initializeApp } from "./redux/app-reducer";
 import React from 'react';
+import Preloader from './components/common/Preloader/Preloader';
 
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.getAuthUserData();
+    this.props.initializeApp()
   }
   render() {
+    if(!this.props.initialazed){
+      return <Preloader/>
+    }
     return (
       <BrowserRouter>
         <div className="app-wrapper">
@@ -52,6 +56,9 @@ class App extends React.Component {
   }
 }
 
+const mapStateToProps = (state) =>({
+  initialazed:state.app.initialazed
+})
 
-export default connect(null, {getAuthUserData})(App)
+export default connect(mapStateToProps, {initializeApp})(App)
 

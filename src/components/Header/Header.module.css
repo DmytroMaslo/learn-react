@@ -11,20 +11,24 @@
   }
 
 .header  span{
-    font-size: 40px;
+    font-size: 55px;
     color:#ddd;
     font-weight: bold;
   }
 .header a {
   text-decoration: none;
 }
-  .loginBlock{
+.loginBlock{
     float: right;
     padding-right: 5px;
-  }
-  .loginBlock a{
+}
+.loginBlock a{
     font-weight: bold;
     color:#ddd;
     padding-right: 10px;
+}
+.logout{
 
-  }
+  cursor: pointer;
+  padding: 0px;
+}

@@ -7,7 +7,7 @@ import { BsFillHandThumbsUpFill } from "react-icons/bs";
 const News = (props) => {
     return (
         <div>
-            {props.news.map((newsItem) => (<div key={newsItem.id} className={styles.newsItem}>
+            {props.news.slice(0).reverse().map((newsItem) => (<div key={newsItem.id} className={styles.newsItem}>
                 <div >
 
                     <h3>{newsItem.title}</h3>
