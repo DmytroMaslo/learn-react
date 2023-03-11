@@ -5,7 +5,6 @@ import { BsFillHandThumbsUpFill } from "react-icons/bs";
 
 
 const News = (props) => {
-
     return (
         <div>
             {props.news.map((newsItem) => (<div key={newsItem.id} className={styles.newsItem}>
@@ -16,10 +15,13 @@ const News = (props) => {
 
                 </div>
                 <div className={styles.panel}>
-                    <div><BsFillHandThumbsUpFill /></div>
-                    <div><MdDelete /></div>
-                    <div></div>
+                    <div>
+                        <div onClick={()=>props.onLikeNews(newsItem.id)}><BsFillHandThumbsUpFill /></div>
+                        <div onClick={()=>props.onRemoveNews(newsItem.id)}><MdDelete /></div>
+                    </div>
+                    
                 </div>
+                <div> likes: {newsItem.likes}</div>
             </div>))}
         </div>
     )

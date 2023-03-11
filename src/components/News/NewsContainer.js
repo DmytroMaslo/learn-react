@@ -1,5 +1,5 @@
 import React from "react";
-import { addNews,removeNews } from "../../redux/news-reducer";
+import { addNews,likeNews,removeNews } from "../../redux/news-reducer";
 import News from "./News";
 import { connect } from "react-redux";
 let mapStateToProps = (state) => {
@@ -15,6 +15,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         onRemoveNews: (newsId) => {
             dispatch(removeNews(newsId))
+        },
+        onLikeNews:(newsId)=>{
+            dispatch(likeNews(newsId))
         }
     }
 }
