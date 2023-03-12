@@ -4,6 +4,7 @@ import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 import { withAuthRedirect } from "../login/AuthRedirectComponent";
 import { compose } from "redux";
+import { getDialogsSelector, getMessagesSelector, getNewMessageSelector } from "../../redux/dialogs-selectors";
 
 
 let mapStateToProps = (state) => {
