@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { withAuthRedirect } from "../login/AuthRedirectComponent";
 import { compose } from "redux";
+import { getProfileSelector, getStatusSelector, getUserIdSelector } from "../../redux/profile-selectors";
 /**api-key: 7f3c19d9-d088-4b96-b87d-d55584ecdcbe */
 class ProfileContainer extends React.Component {
 
@@ -23,9 +24,9 @@ class ProfileContainer extends React.Component {
     }
 }
 let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile,
-    status: state.profilePage.status,
-    userId:state.auth.userId
+    profile: getProfileSelector(state),
+    status: getStatusSelector(state),
+    userId:getUserIdSelector(state)
 });
 
 let withRouter = (Component) => {

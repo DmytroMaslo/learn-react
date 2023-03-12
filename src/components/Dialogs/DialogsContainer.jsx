@@ -8,9 +8,9 @@ import { compose } from "redux";
 
 let mapStateToProps = (state) => {
     return {
-        dialogs: state.dialogsPage.dialogs,
-        messages: state.dialogsPage.messages,
-        newMessage: state.dialogsPage.newMessage,
+        dialogs: getDialogsSelector(state),
+        messages: getMessagesSelector(state),
+        newMessage: getNewMessageSelector(state),
     }
 }
 let mapDispatchToProps = (dispatch) => {
