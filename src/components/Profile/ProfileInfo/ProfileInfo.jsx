@@ -2,7 +2,8 @@ import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import styles from './ProfileInfo.module.css'
 import defaultAvatar from './../../../img/default-user.jpg'
-import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+
 const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader />
@@ -21,7 +22,7 @@ const ProfileInfo = (props) => {
                     ? props.profile.userId
                     : ''}</span>
                 <span><h4>Status </h4></span>
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
             </div>
 
         </div>
