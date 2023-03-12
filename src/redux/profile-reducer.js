@@ -1,4 +1,4 @@
-//import { profileAPI, userAPI } from "../api/api";
+import { profileAPI, userAPI } from "../api/api";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST = 'UPDATE-NEW-POST';
@@ -60,9 +60,7 @@ const profileReducer = (state = initialState, action) => {
         case DELETE_POST: {
             return {
                 ...state,
-                posts:state.posts.filter((ele) => {
-                    return ele.id !== action.id;
-                })
+                posts:state.posts.filter(post => post.id !== action.id )
             }
         }
         default:
