@@ -4,7 +4,7 @@ import { setUsers, follow, unfollow, setCurrentPage, setTotalUsersCount, setFetc
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
 import { userAPI } from "../../api/api";
-import { getCurrentPagesSelector, getFollowingInProgressSelector, getIsFetchingSelector, getPageSizeSelector, getTotalUsersCountSelector, getUsersSelector } from "../../redux/users-selectors";
+import { getCurrentPagesSelector, getFollowingInProgressSelector, getIsFetchingSelector, getPageSizeSelector, getTotalUsersCountSelector, getUsersDificultSelector } from "../../redux/users-selectors";
 
 class UsersAPIComponent extends React.Component {
 
@@ -33,7 +33,7 @@ class UsersAPIComponent extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        users: getUsersSelector(state),
+        users: getUsersDificultSelector(state),
         pageSize:getPageSizeSelector(state),
         totalUsersCount: getTotalUsersCountSelector(state),
         currentPage: getCurrentPagesSelector(state),
