@@ -13,11 +13,11 @@ let initialState =  {
     messages: [
       { id: 1, message: 'Hi!' },
       { id: 2, message: 'How are you?' },
-      { id: 3, message: 'Okey' },
-      { id: 4, message: 'Yo!' },
-      { id: 5, message: 'Yo@' },
-      { id: 6, message: 'Yo?' },
-      { id: 7, message: '%#&$#$?' },
+      { id: 3, message: 'Lorem ipsum dolor sit amet' },
+      { id: 4, message: 'consectetur adipiscing elit!' },
+      { id: 5, message: 'Cras in turpis augue' },
+      { id: 6, message: 'Morbi vel felis quis' },
+      { id: 7, message: 'augue faucibus tincidunt' },
     ],
     newMessage:'Type your message here'
   }
