@@ -1,7 +1,6 @@
 import { profileAPI, userAPI } from "../api/api";
 
 const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST = 'UPDATE-NEW-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const UPDATE_STATUS = 'UPDATE-STATUS';
 const SET_NEW_STATUS = 'SET-NEW-STATUS';
@@ -60,15 +59,15 @@ const profileReducer = (state = initialState, action) => {
         case DELETE_POST: {
             return {
                 ...state,
-                posts:state.posts.filter(post => post.id !== action.id )
+                posts: state.posts.filter(post => post.id !== action.id)
             }
         }
         default:
             return state
     }
 }
-export const addPostActionCreator = (postText) => ({ type: ADD_POST,post:postText })
-export const deletePost = (postId) => ({ type: DELETE_POST,id:postId })
+export const addPostActionCreator = (postText) => ({ type: ADD_POST, post: postText })
+export const deletePost = (postId) => ({ type: DELETE_POST, id: postId })
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const getUserProfile = (userId) => {
     return (dispath) => {
