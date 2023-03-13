@@ -41,7 +41,8 @@ const newsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 news: state.news.map(
-                    (newsItem) => newsItem.id === action.newsId && newsItem.isLiked===false ? { ...newsItem, likes: newsItem.likes + 1, isLiked:true }
+                    (newsItem) => newsItem.id === action.newsId && newsItem.isLiked===false 
+                        ? { ...newsItem, likes: newsItem.likes + 1, isLiked:true }
                         : newsItem
                 )
             }
@@ -50,8 +51,11 @@ const newsReducer = (state = initialState, action) => {
             return state
     }
 }
+
 export const addNews = (newNews) => ({ type: ADD_NEWS, newNews: { id: 9, title: 'Add new news', description: 'some description', text: 'Long long text', views: 0 } })
+
 export const removeNews = (newsId) => ({ type: REMOVE_NEWS, newsId })
+
 export const likeNews = (newsId) => {
     return { type: LIKE_NEWS, newsId }
 }

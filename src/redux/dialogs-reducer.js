@@ -21,7 +21,7 @@ let initialState =  {
     ],
     newMessage:'Type your message here'
   }
-  let stateCopy;
+
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE:{
@@ -30,12 +30,6 @@ const dialogsReducer = (state = initialState, action) => {
                 newMessage:'',
                 messages:[...state.messages,{id:8,message:action.message}]
             }
-        }
-        case UPDATE_NEW_MESSAGE:{
-            return {
-                ...state,
-                newMessage:action.newMessage}
-             
         }
         default:
             return state
