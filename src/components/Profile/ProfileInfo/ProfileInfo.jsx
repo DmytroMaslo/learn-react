@@ -4,25 +4,25 @@ import styles from './ProfileInfo.module.css'
 import defaultAvatar from './../../../img/default-user.jpg'
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
-const ProfileInfo = (props) => {
-    if (!props.profile) {
+const ProfileInfo = ({profile,status,updateStatus}) => {
+    if (!profile) {
         return <Preloader />
     }
 
     return (
         <div>
             <div className={styles.userInfo}>
-                <img className={styles.userAvatar} src={props.profile.photos.small != null
-                    ? props.profile.photos.small
+                <img className={styles.userAvatar} src={profile.photos.small != null
+                    ? profile.photos.small
                     : defaultAvatar} />
-                <h4>{props.profile.fullName !== undefined
-                    ? props.profile.fullName
+                <h4>{profile.fullName !== undefined
+                    ? profile.fullName
                     : ''}</h4>
-                <span>{props.profile.userId !== undefined
-                    ? props.profile.userId
+                <span>{profile.userId !== undefined
+                    ? profile.userId
                     : ''}</span>
                 <span><h4>Status </h4></span>
-                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
             </div>
 
         </div>

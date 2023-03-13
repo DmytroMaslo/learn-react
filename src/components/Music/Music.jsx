@@ -2,7 +2,7 @@ import React from "react"
 const Music = ()=>{
     return (
         <div>
-            Music
+            Music section under construction
         </div>
     )
 }

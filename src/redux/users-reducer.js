@@ -1,4 +1,5 @@
 import { userAPI } from "../api/api";
+import { updateObjectInArray } from "../utils/reduce-helper";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -9,13 +10,7 @@ const SET_FETCHING = 'SET_FETCHING';
 const TOGGLE_IS_FOLOWING_PROCESS = 'TOGGLE_IS_FOLOWING_PROCESS'
 
 let initialState = {
-    users: [
-        /* {id: 1,name: "Alexandra Neaman",uniqueUrlName: null,photos: {small: null,large: null}, status: null, followed: false},
-         {id: 2,name: "Nicole Smith",uniqueUrlName: null,photos: {small: null,large: null}, status: null, followed: false},
-         {id: 3,name: "Samanta Stone",uniqueUrlName: null,photos: {small: null,large: null}, status: null, followed: false},
-         {id: 4,name: "Daniela Rodrigez",uniqueUrlName: null,photos: {small: null,large: null}, status: null, followed: false},
-     */
-    ],
+    users: [],
     pageSize: 10,
     totalUsersCount: 112,
     realUsersCount: 0,
@@ -28,23 +23,25 @@ const userReducer = (state = initialState, action) => {
         case FOLLOW: {
             return {
                 ...state,
-                users: state.users.map(user => {
+                users: updateObjectInArray(state.users,action.userId,'id',{followed: true })
+                /**state.users.map(user => {
                     if (user.id === action.userId) {
                         return { ...user, followed: true }
                     }
                     return user;
-                })
+                })*/
             }
         }
         case UNFOLLOW: {
             return {
                 ...state,
-                users: state.users.map(user => {
+                users: updateObjectInArray(state.users,action.userId,'id',{followed: false })
+                /**state.users.map(user => {
                     if (user.id === action.userId) {
                         return { ...user, followed: false }
                     }
                     return user;
-                })
+                })*/
             }
         }
         case SET_USERS: {

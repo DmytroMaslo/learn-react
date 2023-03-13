@@ -3,18 +3,15 @@ import { connect } from "react-redux";
 import { setUsers, follow, unfollow, setCurrentPage, setTotalUsersCount, setFetching, toggleIsFollowingProgress,getUsers } from "../../redux/users-reducer";
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
-import { userAPI } from "../../api/api";
-import { getCurrentPagesSelector, getFollowingInProgressSelector, getIsFetchingSelector, getPageSizeSelector, getTotalUsersCountSelector, getUsersDificultSelector } from "../../redux/users-selectors";
+import { getCurrentPagesSelector, getFollowingInProgressSelector, getIsFetchingSelector, getPageSizeSelector, getTotalUsersCountSelector, getUsersSelector } from "../../redux/users-selectors";
 
 class UsersAPIComponent extends React.Component {
 
     componentDidMount() {
         this.props.getUsers(this.props.currentPage,this.props.pageSize)
-        
     }
     onPageChanged(pageNumber) {
         this.props.getUsers(pageNumber,this.props.pageSize)
-
     }
 
     render() {
@@ -33,7 +30,7 @@ class UsersAPIComponent extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        users: getUsersDificultSelector(state),
+        users: getUsersSelector(state),
         pageSize:getPageSizeSelector(state),
         totalUsersCount: getTotalUsersCountSelector(state),
         currentPage: getCurrentPagesSelector(state),
@@ -41,32 +38,7 @@ let mapStateToProps = (state) => {
         followingInProgress:getFollowingInProgressSelector(state),
     }
 }
-/** 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
 
-            dispatch(followAC(userId))
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowAC(userId))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users))
-        },
-        setCurrentPage: (currentPage) => {
-            dispatch(setCurrentPageAC(currentPage))
-        },
-        setTotalUsersCount: (totalCount) => {
-            dispatch(setTotalUsersCountAC(totalCount))
-        },
-        setFetching: (isFetching) => {
-            dispatch(setFetchingAC(isFetching))
-        },
-
-    }
-}
-*/
 export default connect(mapStateToProps, {
     follow,
     unfollow,
