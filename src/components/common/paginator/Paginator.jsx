@@ -19,13 +19,14 @@ let Paginator = (props) => {
     return (
 
         <div className={styles.pagination}>
-            <button onClick={() => { setPortionNumber(portionNumber - 1) }}><BsArrowLeftShort /></button>
+            {portionNumber>1 ?<button onClick={() => { setPortionNumber(portionNumber - 1) }}><BsArrowLeftShort /></button>: null }
+            
 
             {pages.filter(p => p >= leftBorder && p <= rightBorder)
                 .map(p => <span className={p == props.currentPage ? styles.currentPage : null}
                     onClick={() => { props.onPageChanged(p) }} >{p}
                 </span>)}
-            <button onClick={() => { setPortionNumber(portionNumber + 1) }}><BsArrowRightShort /></button>
+                {protionCount>portionNumber ?  <button onClick={() => { setPortionNumber(portionNumber + 1) }}><BsArrowRightShort /></button> : null}
         </div>
     )
 }

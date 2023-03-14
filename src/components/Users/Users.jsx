@@ -4,7 +4,7 @@ import Paginator from "../common/paginator/Paginator";
 import User from "./User";
 let Users = ({ currentPage, totalUsersCount, pageSize, onPageChanged, ...props }) => {
     return (<div className={styles.users}>
-        <Paginator currentPage={currentPage} totalUsersCount={totalUsersCount} pageSize={pageSize} onPageChanged={onPageChanged} paginatorSize={10} />
+        <Paginator currentPage={currentPage} totalUsersCount={totalUsersCount} pageSize={pageSize} onPageChanged={onPageChanged} paginatorSize={15} />
 
         {
             props.users.map(user => <User
