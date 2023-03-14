@@ -11,3 +11,7 @@
  background-color: #ddd;
  cursor: pointer;
 }
+.currentPage{
+    font-weight: bold;
+    font-size: 18px;
+}

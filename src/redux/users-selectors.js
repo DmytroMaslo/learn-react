@@ -6,7 +6,7 @@ export const getPageSizeSelector = state => state.usersPage.pageSize
 
 export const getTotalUsersCountSelector = state => state.usersPage.totalUsersCount
 
-export const getCurrentPagesSelector = state => state.usersPage.currentPages
+export const getCurrentPagesSelector = state => state.usersPage.currentPage
 
 export const getIsFetchingSelector = state => state.usersPage.isFetching
 

@@ -24,24 +24,12 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: updateObjectInArray(state.users,action.userId,'id',{followed: true })
-                /**state.users.map(user => {
-                    if (user.id === action.userId) {
-                        return { ...user, followed: true }
-                    }
-                    return user;
-                })*/
             }
         }
         case UNFOLLOW: {
             return {
                 ...state,
                 users: updateObjectInArray(state.users,action.userId,'id',{followed: false })
-                /**state.users.map(user => {
-                    if (user.id === action.userId) {
-                        return { ...user, followed: false }
-                    }
-                    return user;
-                })*/
             }
         }
         case SET_USERS: {
@@ -51,7 +39,7 @@ const userReducer = (state = initialState, action) => {
             return { ...state, currentPage: action.currentPage }
         }
         case SET_TOTAL_USERS_COUNT: {
-            return { ...state, realUsersCount: action.totalCount }
+            return { ...state, totalUsersCount: action.totalCount }
         }
         case SET_FETCHING: {
             return { ...state, isFetching: action.isFetching }
@@ -68,6 +56,7 @@ const userReducer = (state = initialState, action) => {
             return state
     }
 }
+
 export const followAC = (userId) => ({ type: FOLLOW, userId })
 export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId })
 export const setUsers = (users) => ({ type: SET_USERS, users })
@@ -82,6 +71,7 @@ export const getUsers = (pageNumber, pageSize) => async (dispatch) => {
 
     let data = await userAPI.getUsers(pageNumber, pageSize)
 
+    dispatch(setTotalUsersCount(data.totalCount))
     dispatch(setFetching(false));
     dispatch(setUsers(data.items));
 }

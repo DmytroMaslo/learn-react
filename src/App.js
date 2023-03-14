@@ -20,8 +20,8 @@ class App extends React.Component {
     this.props.initializeApp()
   }
   render() {
-    if(!this.props.initialazed){
-      return <Preloader/>
+    if (!this.props.initialazed) {
+      return <Preloader />
     }
     return (
       <BrowserRouter>
@@ -56,9 +56,9 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state) =>({
-  initialazed:state.app.initialazed
+const mapStateToProps = (state) => ({
+  initialazed: state.app.initialazed
 })
 
-export default connect(mapStateToProps, {initializeApp})(App)
+export default connect(mapStateToProps, { initializeApp })(App)
 

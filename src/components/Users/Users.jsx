@@ -2,17 +2,17 @@ import React from "react";
 import styles from './Users.module.css'
 import Paginator from "../common/paginator/Paginator";
 import User from "./User";
-let Users = ({currentPage,totalUsersCount,pageSize,onPageChanged, ...props}) => {
+let Users = ({ currentPage, totalUsersCount, pageSize, onPageChanged, ...props }) => {
     return (<div className={styles.users}>
-        <Paginator currentPage={currentPage} totalUsersCount={totalUsersCount} pageSize={pageSize} onPageChanged={onPageChanged} />
+        <Paginator currentPage={currentPage} totalUsersCount={totalUsersCount} pageSize={pageSize} onPageChanged={onPageChanged} paginatorSize={10} />
 
         {
             props.users.map(user => <User
-                 user={user}
-                 followingInProgress={props.followingInProgress}
-                 unfollow={props.unfollow}
-                 follow={props.follow}
-                 />)
+                user={user}
+                followingInProgress={props.followingInProgress}
+                unfollow={props.unfollow}
+                follow={props.follow}
+            />)
         }
     </div>)
 }
